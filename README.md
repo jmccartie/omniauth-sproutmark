@@ -1,8 +1,6 @@
-# Omniauth::Sproutmark
+# OmniAuth Sproutmark OAuth2 Strategy
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/omniauth/sproutmark`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A SproutMark OAuth2 strategy for OmniAuth.
 
 ## Installation
 
@@ -22,7 +20,29 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Register your application with SproutMark: https://www.sproutmark.com/profile/apps
+
+This is an example that you might put into a Rails initializer at `config/initializers/omniauth.rb`:
+
+```ruby
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :sproutmark, ENV['SPROUTMARK_APP_ID'], ENV['SPROUTMARK_SECRET']
+end
+```
+
+## Granting Permissions to Your Application
+
+With the SproutMark API, you have the ability to specify which permissions you want users to grant your application.
+
+By default, omniauth-sproutmark requests the following permissions:
+
+    'global'
+
+You can configure the scope option:
+
+```ruby
+provider :sproutmark, ENV['SPROUTMARK_APP_ID'], ENV['SPROUTMARK_SECRET'], :scope => 'identity'
+```
 
 ## Development
 
