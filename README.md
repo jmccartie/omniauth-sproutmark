@@ -1,3 +1,5 @@
+![image](https://travis-ci.org/jmccartie/omniauth-sproutmark.svg?branch=master)
+
 # OmniAuth Sproutmark OAuth2 Strategy
 
 A SproutMark OAuth2 strategy for OmniAuth.
